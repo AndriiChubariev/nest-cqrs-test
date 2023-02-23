@@ -8,12 +8,12 @@ export class Hero extends AggregateRoot {
   }
 
   killEnemy(enemyId: string) {
-    // logic
+    console.log('Killing Dragon Logic');
     this.apply(new HeroKilledDragonEvent(this.id, enemyId));
   }
 
   addItem(itemId: string) {
-    // logic
+    console.log('Add Item Logic');
     this.apply(new HeroFoundItemEvent(this.id, itemId));
   }
 }

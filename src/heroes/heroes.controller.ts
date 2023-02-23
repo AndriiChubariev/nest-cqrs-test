@@ -14,7 +14,13 @@ export class HeroesGameController {
 
   @Post(':id/kill')
   async killDragon(@Param('id') id: string, @Body() dto: KillDragonDto) {
-    return this.commandBus.execute(new KillDragonCommand(id, dto.dragonId));
+    const result = this.commandBus.execute(
+      new KillDragonCommand(id, dto.dragonId),
+    );
+
+    console.log(`got a result from commandBus ${JSON.stringify(result)}`);
+    console.log(`--- Return in controller`);
+    return result;
   }
 
   @Get()
